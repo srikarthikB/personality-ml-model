@@ -1,0 +1,218 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Design tokens ─────────────────────────────────────── */
+:root {
+  --glow-indigo:  rgba(99, 102, 241, 0.4);
+  --glow-violet:  rgba(139, 92, 246, 0.35);
+  --glow-plasma:  rgba(192, 132, 252, 0.3);
+  --font-primary: 'Outfit', sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+}
+
+/* ─── Global reset & base ───────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: #050508;
+  color: #e2e2f0;
+  font-family: var(--font-primary);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Every element inherits Outfit */
+h1, h2, h3, h4, h5, h6,
+p, span, a, button, input, textarea, label,
+div, li, td, th {
+  font-family: var(--font-primary);
+}
+
+/* Mono stays monospace */
+code, pre, kbd, samp,
+.font-mono, [class*="font-mono"] {
+  font-family: var(--font-mono) !important;
+}
+
+/* ─── Scrollbar ─────────────────────────────────────────── */
+::-webkit-scrollbar       { width: 3px; }
+::-webkit-scrollbar-track { background: #0a0a12; }
+::-webkit-scrollbar-thumb { background: #252545; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #6366f1; }
+
+/* ─── Glow utilities ────────────────────────────────────── */
+.glow-indigo {
+  box-shadow: 0 0 30px var(--glow-indigo), 0 0 60px rgba(99,102,241,0.12);
+}
+.glow-violet {
+  box-shadow: 0 0 40px var(--glow-violet), 0 0 80px rgba(139,92,246,0.10);
+}
+.text-glow {
+  text-shadow: 0 0 30px rgba(99,102,241,0.8), 0 0 60px rgba(99,102,241,0.4);
+}
+.text-glow-plasma {
+  text-shadow: 0 0 30px rgba(192,132,252,0.9), 0 0 60px rgba(192,132,252,0.5);
+}
+
+/* ─── Neural grid background ────────────────────────────── */
+.bg-neural-grid {
+  background-image:
+    linear-gradient(rgba(99,102,241,0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99,102,241,0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* ─── Glassmorphism card ────────────────────────────────── */
+.glass-card {
+  background: linear-gradient(135deg,
+    rgba(15,15,28,0.95) 0%,
+    rgba(10,10,20,0.98) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* ─── Animated gradient border ─────────────────────────── */
+.gradient-border {
+  position: relative;
+}
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6, #c084fc, #6366f1);
+  background-size: 300% 300%;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: gradientShift 4s ease infinite;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+.gradient-border:focus-within::before { opacity: 1; }
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50%       { background-position: 100% 50%; }
+}
+
+/* ─── Textarea ──────────────────────────────────────────── */
+textarea {
+  resize: none;
+  field-sizing: content;
+  font-family: var(--font-primary) !important;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+}
+textarea:focus { outline: none; }
+textarea::placeholder { font-family: var(--font-primary); }
+
+/* ─── Noise overlay ─────────────────────────────────────── */
+.noise::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.35;
+}
+
+/* ─── Confidence bar ────────────────────────────────────── */
+@keyframes fillBar {
+  from { width: 0%; }
+  to   { width: var(--target-width); }
+}
+.confidence-fill {
+  animation: fillBar 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ─── Shimmer ───────────────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255,255,255,0.07) 50%,
+    transparent 100%
+  );
+  background-size: 200% auto;
+  animation: shimmer 2.2s linear infinite;
+}
+
+/* ─── Scanning line effect ──────────────────────────────── */
+@keyframes scanline {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+.scan-line {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent,
+    rgba(99,102,241,0.15),
+    rgba(192,132,252,0.1),
+    transparent
+  );
+  animation: scanline 8s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ─── Typography helpers ────────────────────────────────── */
+.hero-title {
+  font-family: var(--font-primary);
+  font-weight: 800;
+  font-size: clamp(3.2rem, 9vw, 5.5rem);
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+}
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.eyebrow-text {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* ─── Button base ───────────────────────────────────────── */
+.btn-primary {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.btn-ghost {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+  transition: all 0.2s ease;
+}
+
+/* ─── Orbit rings (loading) ─────────────────────────────── */
+@keyframes orbit         { from { transform: rotate(0deg); }   to { transform: rotate(360deg); } }
+@keyframes orbit-reverse { from { transform: rotate(0deg); }   to { transform: rotate(-360deg); } }
+.orbit-ring         { animation: orbit 8s linear infinite; }
+.orbit-ring-reverse { animation: orbit-reverse 12s linear infinite; }

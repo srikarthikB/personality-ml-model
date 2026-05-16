@@ -5,7 +5,11 @@ import joblib
 import re
 from scipy.sparse import hstack
 
-app = FastAPI(title="MBTI Personality Predictor API")
+app = FastAPI(
+    title="MBTI Personality Predictor API",
+    description="Hybrid NLP personality prediction API using TF-IDF and LinearSVC",
+    version="1.0.0"
+)
 
 app.add_middleware(
     CORSMiddleware,
@@ -41,12 +45,17 @@ def predict_personality(text):
     char_features = char_vectorizer.transform([cleaned])
     combined_features = hstack([word_features, char_features])
     prediction = model.predict(combined_features)[0]
-    scores = model.decision_function(combined_features)
-    confidence = float(scores.max())
+    decision_scores = model.decision_function(combined_features)
+    raw_confidence = float(decision_scores.max())
+    confidence = min(max((raw_confidence + 1) * 20, 0), 100)
     return {
         "personality": prediction,
         "confidence": round(confidence, 2)
     }
+
+@app.get("/health")
+def health():
+    return {"status": "running"}
 
 @app.get("/")
 def home():
@@ -57,5 +66,11 @@ class PredictionRequest(BaseModel):
 
 @app.post("/predict")
 def predict(request: PredictionRequest):
+    if not request.text.strip():
+        return {"error": "Text cannot be empty"}
+    if len(request.text.split()) < 5:
+        return {
+            "error": "Please enter at least 5 words"
+        }
     result = predict_personality(request.text)
     return result
