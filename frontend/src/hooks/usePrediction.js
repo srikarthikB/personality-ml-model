@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react';
 import axios from 'axios';
 
-const API_URL = 'http://127.0.0.1:8000/predict';
+const API_URL = 'https://personality-predictor-xewd.onrender.com/predict';
 
 export const usePrediction = () => {
   const [result, setResult] = useState(null);
