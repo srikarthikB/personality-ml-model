@@ -2,6 +2,11 @@ export const mbtiData = {
   INTJ: {
     title: 'The Architect',
     tagline: 'Rare minds that see the blueprint behind reality.',
+    description:
+      'INTJs are strategic, independent thinkers who combine a relentless drive for improvement with a gift for seeing long-range patterns. They hold themselves and others to a very high standard, approach every challenge as an intellectual puzzle, and rarely stop until they have found the most elegant solution.',
+    strengths: ['Strategic long-term planning', 'Independent & self-confident', 'Decisive under pressure', 'High standards & precision', 'Lifelong learner'],
+    weaknesses: ['Can appear cold or arrogant', 'Overly critical of others', 'Struggles with small talk', 'Dismisses emotional arguments', 'Perfectionistic to a fault'],
+    compatibility: 'INTJs communicate best with directness and substance. Skip the pleasantries — get to the point and back it up with logic. They respect competence above all; show you have done your homework. In relationships, they need intellectual depth and personal space in equal measure.',
     traits: ['Strategic', 'Independent', 'Determined', 'Visionary'],
     color: 'from-indigo-600 to-blue-700',
     accent: '#6366f1',
@@ -11,6 +16,11 @@ export const mbtiData = {
   INTP: {
     title: 'The Logician',
     tagline: 'Relentless thinkers driven by pure curiosity.',
+    description:
+      'INTPs live inside a rich inner world of theories, models, and "what-ifs." They are energised by unresolved problems and naturally pull apart every idea until they understand its foundations. Their quest for precision and truth makes them brilliant analysts — though the outside world sometimes has to wait for them to return from thought.',
+    strengths: ['Abstract & theoretical thinking', 'Objective analysis', 'Open-minded to new ideas', 'Creative problem-solving', 'Deep concentration'],
+    weaknesses: ['Prone to overthinking', 'Neglects practical details', 'Can be absent-minded', 'Struggles to express feelings', 'Leaves projects 90% done'],
+    compatibility: 'INTPs flourish in conversation when given room to explore ideas freely. Debate is a love language for them — challenge their theories and they will respect you for it. Avoid pressing them for quick emotional responses; give them time to process, and they will arrive with something worth hearing.',
     traits: ['Analytical', 'Inventive', 'Precise', 'Objective'],
     color: 'from-blue-600 to-cyan-700',
     accent: '#22d3ee',
@@ -20,6 +30,11 @@ export const mbtiData = {
   ENTJ: {
     title: 'The Commander',
     tagline: 'Natural leaders who see inefficiency as a personal insult.',
+    description:
+      'ENTJs are born strategists and natural executives. They spot inefficiency instantly, have a clear vision for how things should work, and are energised by organising people and systems to reach bold goals. Direct, confident, and relentless, they often find themselves in charge whether they sought the role or not.',
+    strengths: ['Commanding leadership', 'Strategic vision', 'High efficiency mindset', 'Confident decision-making', 'Motivates teams to excellence'],
+    weaknesses: ['Impatient with slow pace', 'Domineering in groups', 'Dismisses feelings as obstacles', 'Struggles to admit fault', 'Sets unrealistic expectations'],
+    compatibility: 'ENTJs respect clarity and competence. State your position confidently, back it up with evidence, and do not waffle. They appreciate debate but need to see a path to action. In personal relationships, they respond well when partners match their directness while occasionally reminding them to slow down and feel.',
     traits: ['Bold', 'Strategic', 'Confident', 'Decisive'],
     color: 'from-violet-600 to-indigo-700',
     accent: '#8b5cf6',
@@ -29,6 +44,11 @@ export const mbtiData = {
   ENTP: {
     title: 'The Debater',
     tagline: 'Thriving at the intersection of intellect and chaos.',
+    description:
+      'ENTPs are idea generators who love turning assumptions upside-down. They argue both sides of a debate for sport, relentlessly innovate, and thrive in environments where nothing is fixed. They see every rule as a hypothesis waiting to be tested and every conversation as an opportunity to discover something unexpected.',
+    strengths: ['Rapid idea generation', 'Sees hidden connections', 'Charming & quick-witted', 'Thrives on debate', 'Adapts to change effortlessly'],
+    weaknesses: ["Starts more than they finish", "Argues for argument's sake", 'Can be insensitive', 'Bored by routine', 'Overlooks practical details'],
+    compatibility: 'ENTPs love a sparring partner. Engage their ideas head-on — they find agreement boring and gentle pushback electrifying. Be prepared for them to argue the opposite just to see where it goes. They need a partner or colleague who can hold their own intellectually while keeping them accountable to actually finishing things.',
     traits: ['Quick-witted', 'Charismatic', 'Unconventional', 'Bold'],
     color: 'from-amber-500 to-orange-600',
     accent: '#f59e0b',
@@ -38,6 +58,11 @@ export const mbtiData = {
   INFJ: {
     title: 'The Advocate',
     tagline: 'Rare idealists who see far beyond the surface.',
+    description:
+      "INFJs hold the rarest personality type — a paradox of quiet intensity. They sense others' emotions with uncanny accuracy, see long-term patterns others miss, and are driven by a deep need to make the world more meaningful. Behind their calm exterior is an unshakeable commitment to their values and a vision of what could be.",
+    strengths: ['Profound empathy & insight', 'Long-range vision', 'Deep conviction & integrity', 'Creative & idealistic', 'Natural counsellor'],
+    weaknesses: ['Perfectionistic & self-critical', 'Prone to burnout from over-giving', 'Difficult to know fully', 'Overly private', 'Avoids conflict to their detriment'],
+    compatibility: 'INFJs open up slowly. Earn their trust through consistency and authentic depth — they will see through surface-level charm immediately. In conversation, go beyond facts and explore meaning. They need partners who respect their need for quiet recharge and honour their vision, even when it seems idealistic.',
     traits: ['Insightful', 'Principled', 'Empathic', 'Purposeful'],
     color: 'from-emerald-600 to-teal-700',
     accent: '#10b981',
@@ -47,6 +72,11 @@ export const mbtiData = {
   INFP: {
     title: 'The Mediator',
     tagline: 'Poets of personality, forever seeking meaning.',
+    description:
+      'INFPs are deeply idealistic, guided by a rich inner moral compass that rarely aligns perfectly with the outside world. They feel emotions with unusual depth, are drawn to beauty and authenticity, and seek to understand the full complexity of human experience. They may be quiet on the surface, but their inner world is vast.',
+    strengths: ['Deep empathy & compassion', 'Creative & expressive', 'Strong personal values', 'Open-minded & accepting', 'Dedicated to growth'],
+    weaknesses: ['Idealistic to a fault', 'Takes criticism personally', 'Struggles with deadlines', 'Overly self-critical', 'Avoids difficult confrontations'],
+    compatibility: 'INFPs need authenticity above all — they have a finely tuned detector for insincerity. Speak from the heart rather than from logic alone. Respect their need to process emotions internally; do not rush them. They thrive with partners who value depth, creativity, and quiet connection over constant activity.',
     traits: ['Idealistic', 'Creative', 'Empathic', 'Passionate'],
     color: 'from-pink-500 to-rose-600',
     accent: '#ec4899',
@@ -56,6 +86,11 @@ export const mbtiData = {
   ENFJ: {
     title: 'The Protagonist',
     tagline: 'Born to inspire, lead, and lift others higher.',
+    description:
+      "ENFJs are natural leaders who lead with their hearts. They are gifted communicators who instinctively understand what motivates people and can rally a group around a shared vision. Warm, decisive, and idealistic, they invest deeply in others' growth — sometimes at the expense of their own needs.",
+    strengths: ['Inspiring & charismatic', 'Deeply empathic listener', 'Strong communicator', 'Natural mentor', 'Highly organised for people-oriented goals'],
+    weaknesses: ["Puts others' needs first to own detriment", 'Struggles to say no', 'Too sensitive to criticism', 'Over-idealises relationships', 'Can be overly controlling in their care'],
+    compatibility: 'ENFJs are relationship-first. Show genuine appreciation for their efforts — they put a lot into every interaction and quietly notice when it goes unacknowledged. Be open about your feelings and goals; they love helping people grow. Push back with kindness when they take on too much.',
     traits: ['Charismatic', 'Empathic', 'Decisive', 'Inspiring'],
     color: 'from-orange-500 to-red-600',
     accent: '#f97316',
@@ -65,6 +100,11 @@ export const mbtiData = {
   ENFP: {
     title: 'The Campaigner',
     tagline: 'Free spirits who find wonder in everything.',
+    description:
+      'ENFPs are creative, enthusiastic, and deeply curious about people. They light up rooms with their energy and have a rare ability to see potential everywhere — in ideas, in projects, and especially in others. Their imagination is boundless, though keeping all those ideas focused and followed through is the lifelong challenge.',
+    strengths: ['Contagious enthusiasm', 'Sees potential everywhere', 'Highly empathic & intuitive', 'Creative & original', 'Excellent communicator'],
+    weaknesses: ['Overthinks & overcomplicates', 'Struggles with follow-through', 'Can take things too personally', 'Needs frequent validation', 'Loses focus across too many interests'],
+    compatibility: 'ENFPs need engagement, not efficiency. Light up their imagination and they will give you their full energy. They connect best through storytelling and shared vision. In relationships, they crave partners who celebrate their enthusiasm rather than trying to ground it, while gently helping them channel it.',
     traits: ['Enthusiastic', 'Creative', 'Sociable', 'Curious'],
     color: 'from-yellow-400 to-amber-500',
     accent: '#facc15',
@@ -74,6 +114,11 @@ export const mbtiData = {
   ISTJ: {
     title: 'The Logistician',
     tagline: 'The bedrock of reliability in any institution.',
+    description:
+      'ISTJs are practical, responsible, and deeply dependable. They take their commitments seriously, prefer proven methods over untested ideas, and quietly keep systems and organisations running long after everyone else has moved on. They may not seek the spotlight, but almost every stable institution has an ISTJ at its core.',
+    strengths: ['Supremely reliable', 'Detail-oriented', 'Strong work ethic', 'Logical & methodical', 'Deeply loyal'],
+    weaknesses: ['Resistant to change', 'Inflexible about rules', 'Slow to express emotions', 'Can be overly judgemental', 'Struggles to delegate'],
+    compatibility: 'ISTJs value clarity, consistency, and follow-through. Show them you can be relied upon by doing what you say you will do, on time. Avoid vague commitments. They communicate best when grounded in facts and specifics. In relationships, they express care through action rather than words — watch for it.',
     traits: ['Responsible', 'Thorough', 'Dependable', 'Focused'],
     color: 'from-slate-500 to-gray-600',
     accent: '#94a3b8',
@@ -83,6 +128,11 @@ export const mbtiData = {
   ISFJ: {
     title: 'The Defender',
     tagline: 'Quietly fierce protectors of those they love.',
+    description:
+      'ISFJs are warm, patient, and deeply attentive to the needs of those around them. They remember the small details — the things that matter to people — and act on that knowledge in quiet, consistent ways. Behind their gentle exterior is a remarkable determination when someone they love or a cause they believe in is at stake.',
+    strengths: ["Attentive to others' needs", 'Highly supportive', 'Reliable & patient', 'Strong memory for personal details', 'Committed & hardworking'],
+    weaknesses: ['Reluctant to change familiar routines', 'Avoids conflict at high personal cost', 'Underestimates own value', 'Takes on too much alone', 'Struggles to set boundaries'],
+    compatibility: 'ISFJs show love through consistent acts of care — they are the ones who remember your coffee order and quietly rearrange their schedule to help you. Acknowledge these gestures explicitly; they need to feel seen. Be patient and gentle in difficult conversations, as they need time to feel safe sharing their own needs.',
     traits: ['Dedicated', 'Warm', 'Patient', 'Reliable'],
     color: 'from-teal-500 to-cyan-600',
     accent: '#14b8a6',
@@ -92,7 +142,12 @@ export const mbtiData = {
   ESTJ: {
     title: 'The Executive',
     tagline: 'Order-bringers who run the world on principle.',
-    traits: ['Organized', 'Loyal', 'Assertive', 'Traditional'],
+    description:
+      'ESTJs are practical, decisive, and firmly committed to the structures and rules that keep communities functioning. They have a clear sense of right, wrong, and how things should be done — and the backbone to enforce it. They are trusted with responsibility because they genuinely deliver.',
+    strengths: ['Highly organised', 'Direct & decisive', 'Loyal to responsibilities', 'Strong leadership', 'Consistent and reliable'],
+    weaknesses: ['Inflexible with rules', 'Too blunt or harsh', 'Dismisses non-traditional approaches', 'Overly focused on status', 'Struggles with emotional nuance'],
+    compatibility: 'ESTJs communicate best in direct, structured terms. Come prepared with facts and a clear plan. They respect confidence and punctuality. Avoid being vague or indirect. In relationships, demonstrate your reliability — they give their loyalty absolutely and expect the same in return.',
+    traits: ['Organised', 'Loyal', 'Assertive', 'Traditional'],
     color: 'from-red-600 to-rose-700',
     accent: '#ef4444',
     glow: 'rgba(239,68,68,0.45)',
@@ -101,6 +156,11 @@ export const mbtiData = {
   ESFJ: {
     title: 'The Consul',
     tagline: 'Masters of community who make everyone feel seen.',
+    description:
+      'ESFJs are the social glue that holds groups together. They are highly attuned to the emotional atmosphere in any room and work hard to ensure everyone feels included and valued. They find meaning in caring for others, and their warmth is both genuine and consistent — not performative.',
+    strengths: ['Makes everyone feel welcome', 'Highly organised socially', 'Loyal & supportive', 'Practical and caring', 'Strong interpersonal skills'],
+    weaknesses: ['Needs external validation', 'Dislikes conflict & change', 'Can be controlling in their care', 'Takes things personally', 'Struggles with criticism'],
+    compatibility: 'ESFJs flourish when they feel appreciated. Acknowledge their contributions directly and warmly. They communicate through shared experiences and emotional check-ins. Be consistent — they track reliability closely. In disagreements, approach them gently and avoid public criticism, which they find deeply destabilising.',
     traits: ['Caring', 'Social', 'Popular', 'Loyal'],
     color: 'from-rose-400 to-pink-500',
     accent: '#fb7185',
@@ -110,6 +170,11 @@ export const mbtiData = {
   ISTP: {
     title: 'The Virtuoso',
     tagline: 'Cool observers who master any tool they touch.',
+    description:
+      'ISTPs are supremely practical, calm in a crisis, and have an innate ability to understand how things work mechanically. They are not talkers — they are doers, preferring to learn by taking things apart and putting them back together. Their detached, observational approach gives them extraordinary troubleshooting skills.',
+    strengths: ['Cool-headed under pressure', 'Practical & hands-on', 'Excellent troubleshooter', 'Highly resourceful', 'Observant & precise'],
+    weaknesses: ['Emotionally distant', 'Easily bored by routine', 'Commits slowly and reluctantly', 'Blunt to the point of insensitivity', 'Risk-taking can become reckless'],
+    compatibility: 'ISTPs value action over words. Skip long emotional discussions; show rather than tell. Give them space and autonomy — they find hovering and micromanagement suffocating. Engage their curiosity by proposing hands-on problems to solve together. They are loyal to people who respect their independence.',
     traits: ['Practical', 'Observant', 'Calm', 'Resourceful'],
     color: 'from-zinc-500 to-slate-600',
     accent: '#a1a1aa',
@@ -119,6 +184,11 @@ export const mbtiData = {
   ISFP: {
     title: 'The Adventurer',
     tagline: 'Quiet rebels who live in full color.',
+    description:
+      'ISFPs are gentle souls with an intensity just below the surface. They live fully in the present moment, guided by an aesthetic sensitivity and a deep moral conviction that rarely announces itself loudly. They are fiercely independent in their personal values, curious about the world, and express themselves most powerfully through what they create.',
+    strengths: ['Highly attuned to beauty', 'Empathic & warm', 'Open-minded & non-judgemental', 'Lives fully in the present', 'Strong personal values'],
+    weaknesses: ['Avoids conflict at high cost', 'Struggles with long-term planning', 'Easily overwhelmed by criticism', 'Unpredictable & hard to read', 'Keeps feelings tightly guarded'],
+    compatibility: 'ISFPs reveal themselves slowly and only to those who feel safe. Be patient, gentle, and present — they cannot be rushed. Share experiences rather than ideas, and let conversation emerge organically. Respect their need for spontaneity and avoid making rigid plans too far in advance. They respond to authentic kindness.',
     traits: ['Artistic', 'Sensitive', 'Flexible', 'Spontaneous'],
     color: 'from-fuchsia-500 to-purple-600',
     accent: '#d946ef',
@@ -128,6 +198,11 @@ export const mbtiData = {
   ESTP: {
     title: 'The Entrepreneur',
     tagline: 'Action-first risk-takers who live for the now.',
+    description:
+      'ESTPs are kinetic energy in human form. They notice everything, act fast, and have an unmatched ability to read a room and adapt in real time. They are at their best in high-stakes situations that demand quick thinking and decisive action — and they are easily bored anywhere that does not offer that.',
+    strengths: ['Bold & action-oriented', 'Excellent perception & awareness', 'Highly persuasive', 'Adaptable in fast-changing situations', 'Energetic & direct'],
+    weaknesses: ['Impatient with theory & planning', 'Risk-taking can spiral', 'Struggles with long-term commitment', 'Can be insensitive', 'Gets bored and moves on quickly'],
+    compatibility: 'ESTPs are drawn to energy and presence. Get to the point — skip lengthy backstories and lead with the exciting part. They need stimulation and variety; predictability kills the connection. In relationships, they show care through action and shared experiences. Meet them in the moment rather than dwelling on the past.',
     traits: ['Energetic', 'Perceptive', 'Direct', 'Rational'],
     color: 'from-lime-500 to-green-600',
     accent: '#84cc16',
@@ -137,6 +212,11 @@ export const mbtiData = {
   ESFP: {
     title: 'The Entertainer',
     tagline: 'Life is a stage — and they were born to perform.',
+    description:
+      'ESFPs bring joy, warmth, and spontaneity wherever they go. They are natural entertainers with a gift for turning ordinary moments into memorable ones. Deeply in tune with the emotions of those around them, they love making people feel good and are often the heart and soul of any social group.',
+    strengths: ['Infectious energy & enthusiasm', "Highly attuned to people's feelings", 'Spontaneous & fun', 'Generous & warm-hearted', 'Excellent improviser'],
+    weaknesses: ['Avoids long-term planning', 'Easily distracted', 'Conflict-averse', 'Sensitive to criticism', 'Struggles with routine'],
+    compatibility: 'ESFPs love to have fun — and they bring others along for the ride. Engage their playful side and create experiences with them, not for them. They are highly sensitive to tone; keep conversations warm and encouraging. Show appreciation loudly and frequently. In serious moments, be patient: they need to feel emotionally safe before they go deep.',
     traits: ['Spontaneous', 'Vivid', 'Playful', 'Warm'],
     color: 'from-sky-400 to-blue-500',
     accent: '#38bdf8',
@@ -150,6 +230,10 @@ export const getMbtiInfo = (type) => {
   return mbtiData[key] || {
     title: 'Unknown Type',
     tagline: 'An uncharted personality.',
+    description: 'This personality type could not be identified.',
+    strengths: [],
+    weaknesses: [],
+    compatibility: '',
     traits: [],
     color: 'from-gray-600 to-gray-700',
     accent: '#6b7280',

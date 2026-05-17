@@ -75,7 +75,7 @@ export const ResultCard = ({ result, onReset }) => {
                   className="text-[13px] text-[#6a6a90] mt-1.5 leading-relaxed italic font-[300]"
                   style={{ letterSpacing: '0.01em' }}
                 >
-                  "{info.tagline}"
+                  &ldquo;{info.tagline}&rdquo;
                 </p>
               </motion.div>
             </div>
@@ -89,6 +89,18 @@ export const ResultCard = ({ result, onReset }) => {
 
           {/* ── Confidence bar ───────────────────────────────── */}
           <ConfidenceBar confidence={confidence} info={info} barRef={barRef} />
+
+          {/* Divider */}
+          <div className="h-px my-7" style={{ background: 'rgba(255,255,255,0.05)' }} />
+
+          {/* ── Personality description ──────────────────────── */}
+          <PersonalityDescription info={info} />
+
+          {/* ── Strengths & Weaknesses ───────────────────────── */}
+          <StrengthsWeaknesses info={info} />
+
+          {/* ── Compatibility / Communication style ─────────── */}
+          <CompatibilityInsight info={info} />
 
           {/* ── Trait badges ─────────────────────────────────── */}
           <TraitBadges traits={info.traits} info={info} />
@@ -223,8 +235,102 @@ const ConfidenceBar = ({ confidence, info, barRef }) => (
   </div>
 );
 
+const PersonalityDescription = ({ info }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 10 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.75 }}
+    className="mb-6"
+  >
+    <span className="section-label text-[#44447a] mb-2.5 block">About this Type</span>
+    <p className="text-[14px] leading-[1.8] text-[#8888b0] font-[300]">
+      {info.description}
+    </p>
+  </motion.div>
+);
+
+const StrengthsWeaknesses = ({ info }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 10 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.85 }}
+    className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6"
+  >
+    {/* Strengths */}
+    <div
+      className="rounded-xl p-4"
+      style={{ background: `${info.accent}08`, border: `1px solid ${info.accent}18` }}
+    >
+      <div className="flex items-center gap-2 mb-3">
+        <span style={{ color: info.accent, fontSize: 13 }}>▲</span>
+        <span className="section-label" style={{ color: info.accent }}>Strengths</span>
+      </div>
+      <ul className="space-y-1.5">
+        {info.strengths.map((s, i) => (
+          <motion.li
+            key={s}
+            className="flex items-start gap-2 text-[12.5px] text-[#7a7aa8]"
+            initial={{ opacity: 0, x: -6 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.9 + i * 0.06 }}
+          >
+            <span style={{ color: info.accent, marginTop: 2, flexShrink: 0 }}>·</span>
+            {s}
+          </motion.li>
+        ))}
+      </ul>
+    </div>
+
+    {/* Weaknesses */}
+    <div
+      className="rounded-xl p-4"
+      style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)' }}
+    >
+      <div className="flex items-center gap-2 mb-3">
+        <span className="text-[#444468]" style={{ fontSize: 13 }}>▼</span>
+        <span className="section-label text-[#444468]">Blind Spots</span>
+      </div>
+      <ul className="space-y-1.5">
+        {info.weaknesses.map((w, i) => (
+          <motion.li
+            key={w}
+            className="flex items-start gap-2 text-[12.5px] text-[#55556a]"
+            initial={{ opacity: 0, x: -6 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.9 + i * 0.06 }}
+          >
+            <span className="text-[#333350] mt-0.5 flex-shrink-0">·</span>
+            {w}
+          </motion.li>
+        ))}
+      </ul>
+    </div>
+  </motion.div>
+);
+
+const CompatibilityInsight = ({ info }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 10 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 1.0 }}
+    className="rounded-xl p-5 mb-7"
+    style={{
+      background: `linear-gradient(135deg, ${info.accent}06, rgba(255,255,255,0.015))`,
+      border: `1px solid ${info.accent}16`,
+    }}
+  >
+    <div className="flex items-center gap-2 mb-2.5">
+      <span style={{ color: info.accent, fontSize: 13 }}>◈</span>
+      <span className="section-label" style={{ color: info.accent }}>Communication Style</span>
+    </div>
+    <p className="text-[13px] leading-[1.8] text-[#6a6a8a] font-[300]">
+      {info.compatibility}
+    </p>
+  </motion.div>
+);
+
 const TraitBadges = ({ traits, info }) => (
-  <div className="mt-7">
+  <div className="mt-2">
     <span className="section-label text-[#44447a] mb-3 block">Key Traits</span>
     <div className="flex flex-wrap gap-2">
       {traits.map((trait, i) => (

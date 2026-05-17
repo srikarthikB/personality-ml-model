@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const MIN_WORDS  = 5;
+const MIN_WORDS  = 20;
 const CHAR_WARN  = 800;
 const CHAR_MAX   = 1000;
 
@@ -12,7 +12,7 @@ const PLACEHOLDERS = [
   "There's nothing I love more than a good debate — not to win, but to find the truth together...",
 ];
 
-export const TextInput = ({ onSubmit, loading }) => {
+export const TextInput = ({ onSubmit, loading, backendStatus }) => {
   const [text,           setText]          = useState('');
   const [focused,        setFocused]       = useState(false);
   const [placeholderIdx]                   = useState(() => Math.floor(Math.random() * PLACEHOLDERS.length));
@@ -22,7 +22,8 @@ export const TextInput = ({ onSubmit, loading }) => {
   const charCount     = text.length;
   const hasEnoughWords = wordCount >= MIN_WORDS;
   const isNearLimit   = charCount > CHAR_WARN;
-  const canSubmit     = hasEnoughWords && !loading && text.trim();
+  const backendReady  = backendStatus === 'awake';
+  const canSubmit     = hasEnoughWords && !loading && text.trim() && backendReady;
 
   const handleSubmit = () => {
     if (!canSubmit) return;
@@ -111,25 +112,44 @@ export const TextInput = ({ onSubmit, loading }) => {
         >
           {/* Word + char counts */}
           <div className="flex items-center gap-3">
+            {/* Mini circular word-progress ring */}
+            <div className="relative flex items-center justify-center flex-shrink-0" style={{ width: 22, height: 22 }}>
+              <svg width="22" height="22" viewBox="0 0 22 22" style={{ transform: 'rotate(-90deg)' }}>
+                <circle cx="11" cy="11" r="8" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="2.2" />
+                <motion.circle
+                  cx="11" cy="11" r="8"
+                  fill="none"
+                  stroke={hasEnoughWords ? '#6366f1' : '#4a3070'}
+                  strokeWidth="2.2"
+                  strokeLinecap="round"
+                  strokeDasharray={`${2 * Math.PI * 8}`}
+                  animate={{ strokeDashoffset: 2 * Math.PI * 8 * (1 - Math.min(wordCount / MIN_WORDS, 1)) }}
+                  transition={{ duration: 0.35 }}
+                />
+              </svg>
+              <span
+                style={{ position: 'absolute', fontSize: 7, lineHeight: 1,
+                  color: hasEnoughWords ? '#6366f1' : '#4a3070', fontFamily: 'monospace' }}
+              >
+                {Math.min(wordCount, MIN_WORDS)}
+              </span>
+            </div>
+
             <AnimatePresence mode="wait">
-              {!hasEnoughWords && text.length > 0 ? (
-                <motion.span
-                  key="warn"
-                  initial={{ opacity: 0, x: -4 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0 }}
-                  className="font-mono text-[11px] text-amber-400/75"
-                >
+              {text.length === 0 ? (
+                <motion.span key="idle" initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+                  className="font-mono text-[11px] text-[#28283e]">
+                  min {MIN_WORDS} words
+                </motion.span>
+              ) : !hasEnoughWords ? (
+                <motion.span key="warn" initial={{ opacity: 0, x: -4 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0 }}
+                  className="font-mono text-[11px]" style={{ color: 'rgba(167,139,250,0.75)' }}>
                   {MIN_WORDS - wordCount} more {MIN_WORDS - wordCount === 1 ? 'word' : 'words'} needed
                 </motion.span>
               ) : (
-                <motion.span
-                  key="ok"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  className={`font-mono text-[11px] ${hasEnoughWords ? 'text-indigo-400/55' : 'text-[#28283e]'}`}
-                >
-                  {wordCount} {wordCount === 1 ? 'word' : 'words'}
+                <motion.span key="ok" initial={{ opacity: 0, scale: 0.85 }} animate={{ opacity: 1, scale: 1 }}
+                  className="font-mono text-[11px] text-indigo-400/70">
+                  ✓ {wordCount} words
                 </motion.span>
               )}
             </AnimatePresence>
