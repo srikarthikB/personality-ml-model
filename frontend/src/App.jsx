@@ -125,16 +125,6 @@ export default function App() {
           </AnimatePresence>
         </main>
 
-        {/* ── Bottom About button ── */}
-        <motion.div
-          className="flex justify-center pb-6"
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.2, duration: 0.6 }}
-        >
-          <AboutNavButton onClick={() => setPage('about')} />
-        </motion.div>
-
         <Footer />
       </div>
     </div>

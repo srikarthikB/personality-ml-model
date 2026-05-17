@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 
 export const Header = () => (
   <motion.header
-    className="relative z-10 text-center pt-16 pb-10 px-4"
+    className="relative z-10 text-center pt-4 pb-10 px-4"
     initial={{ opacity: 0, y: -24 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
